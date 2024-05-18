@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: story
+metadata:
+  name: story-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: story
+  template:
+    metadata:
+      labels:
+        app: story
+    spec:
+      containers:
+      - name: story-container
+        image: nana223/story-service:0.1
+        ports:
+        - containerPort: 3000

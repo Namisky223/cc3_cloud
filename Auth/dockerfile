@@ -1,0 +1,15 @@
+FROM node:14
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3002
+
+ENV MONGO_URI mongodb://mongo:27017/ProAuth
+
+CMD ["node", "index.js"]

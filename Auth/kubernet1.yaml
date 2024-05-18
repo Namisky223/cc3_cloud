@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authentification-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: authentification
+  template:
+    metadata:
+      labels:
+        app: authentification
+    spec:
+      containers:
+      - name: authentification-container
+        image: nana223/authentification-service:0.1
+        ports:
+        - containerPort: 3000

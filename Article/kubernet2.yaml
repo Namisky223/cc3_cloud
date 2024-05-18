@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Article-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: Article
+  template:
+    metadata:
+      labels:
+        app: Article
+    spec:
+      containers:
+      - name: Article-container
+        image: nana223/Article-service:0.1
+        ports:
+        - containerPort: 3000
